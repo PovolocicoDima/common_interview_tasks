@@ -6,6 +6,7 @@
  * Города, в которых концерт уже прошёл надо исключить
  * Результат ["Казань", "Питер", "Калининград"]
  *
+ * Сложность : O (n * log(n))
  */
 
 const concerts = {
@@ -19,8 +20,8 @@ const concerts = {
 
 function sortCitiesByConcertDate(concerts) {
     return Object.keys(concerts)
-        .filter((city) => concerts[city] > new Date())
-        .sort((a, b) => concerts[a].getTime() - concerts[b].getTime())
+        .filter((city) => concerts[city] > new Date()) // O(N)
+        .sort((a, b) => concerts[a].getTime() - concerts[b].getTime()) // O(N * log(N))
 }
 
 console.log(sortCitiesByConcertDate(concerts))
